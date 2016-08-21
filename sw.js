@@ -73,6 +73,14 @@ self.addEventListener('fetch', function(event) {
 
 self.addEventListener('push', function(event) {
   console.log(event);
+  var title = "Hello Ping",
+      message = "Notice me!";
+
+  event.waitUntil(
+    self.registration.showNotification(title, {
+      body: message,
+      icon: '/static-resources/drupal_logo.png',
+    }));
 });
 
 self.addEventListener('message', function(event) {
