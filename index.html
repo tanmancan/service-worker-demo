@@ -6,8 +6,14 @@
 	<link rel="stylesheet" href="/static-resources/style.css">
 </head>
 <body>
-	<p>dynamic: <img src="/dynamic-resources/drupal_logo.png" height="50" alt=""></p>
-	<p>static: <img src="/static-resources/drupal_logo.png" height="50" alt=""></p>
+  <div class="left">
+    <img src="/dynamic-resources/drupal_logo.png" onerror="this.src='/static-resources/drupal_logo_offline.png';">
+    <p>This is an uncached image.</p>
+  </div>
+  <div class="right">
+    <img src="/static-resources/drupal_logo.png">
+    <p>This is a cached image.</p>
+  </div>
 	<script src="/static-resources/app.js"></script>
 </body>
 </html>

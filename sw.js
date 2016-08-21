@@ -53,7 +53,7 @@ self.addEventListener('fetch', function(event) {
             })
             .catch(function(error) {
               console.log('fetch-event-error', error);
-              return cache.match('/static-resources/drupal_logo_offline.png');
+              return cache.match(event.request);
             })
         })
     );

@@ -1,3 +1,25 @@
 body {
-  background: #aaa;
+  background: #efefef;
+  font-size: 1.2rem;
+  font-family: 'Lato', sans-serif;
+  color: #666;
+  display: flex;
+}
+
+div.left,
+div.right {
+  background: white;
+  box-shadow: 1px 1px 5px rgba(0,0,0,.125);
+  margin: 1rem;
+  padding: 1rem;
+  flex: 1;
+}
+
+div img {
+  width: 100%;
+}
+
+div p {
+  text-align: center;
+  margin: 2rem 0 0;
 }
