@@ -71,6 +71,10 @@ self.addEventListener('fetch', function(event) {
 
 });
 
+self.addEventListener('push', function(event) {
+  console.log(event);
+});
+
 self.addEventListener('message', function(event) {
 
 });
