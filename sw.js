@@ -1,4 +1,4 @@
-var version = 2;
+var version = 1;
 
 var CACHE_STATIC = 'service-worker-demo-cache-static-v' + version;
 var staticResource = [
