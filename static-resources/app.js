@@ -12,7 +12,7 @@ if('serviceWorker' in navigator) {
     registration.pushManager.subscribe({
       userVisibleOnly: true
     }).then(function(subscription) {
-      console.log(subscription);
+
     });
 	}).catch(function(e) {
 		console.log('service-worker-failed', e);
