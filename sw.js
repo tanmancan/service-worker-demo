@@ -85,10 +85,6 @@ self.addEventListener('push', function(event) {
     }));
 });
 
-self.addEventListener('message', function(event) {
-
-});
-
 self.addEventListener('error', function(event) {
-
+  console.log(error);
 });
