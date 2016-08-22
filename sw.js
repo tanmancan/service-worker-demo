@@ -74,12 +74,14 @@ self.addEventListener('fetch', function(event) {
 self.addEventListener('push', function(event) {
   console.log(event);
   var title = "Hello Ping",
-      message = "Notice me!";
+      message = "Notice me!",
+      tag = "gcm-push-notification";
 
   event.waitUntil(
     self.registration.showNotification(title, {
       body: message,
       icon: '/static-resources/drupal_logo.png',
+      tag: tag,
     }));
 });
 
