@@ -36,6 +36,10 @@ div p {
   animation: blink 1s ease;
 }
 
+.blink-alt {
+  animation: blink-alt 1s ease;
+}
+
 @keyframes blink {
   0% {
 
@@ -61,4 +65,31 @@ div p {
 
   }
 }
+
+@keyframes blink-alt {
+  0% {
+
+  }
+  20% {
+        transform: scale(1.2);
+  }
+  40% {
+        transform: scale(1);
+  }
+  50% {
+    color: #60a6dd;
+        transform: scale(1.2);
+  }
+  70% {
+        transform: scale(1);
+  }
+  90% {
+        transform: scale(1.2);
+
+  }
+  100% {
+
+  }
+}
+
 

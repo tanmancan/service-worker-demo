@@ -12,7 +12,7 @@ if('serviceWorker' in navigator) {
     registration.pushManager.subscribe({
       userVisibleOnly: true
     }).then(function(subscription) {
-      // console.log(subscription);
+      console.log(subscription);
     });
 
     // Event listener for message
@@ -20,8 +20,11 @@ if('serviceWorker' in navigator) {
       console.log(e);
       var msgEl = document.querySelector('.notification p');
       msgEl.innerHTML = e.data;
-      msgEl.classList = "";
-      msgEl.classList = "blink";
+      if(msgEl.classList.value === "blink") {
+        msgEl.classList = "blink-alt";
+      }else {
+        msgEl.classList = "blink";
+      }
     });
 	}).catch(function(e) {
 		console.log('service-worker-failed', e);
