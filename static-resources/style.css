@@ -33,15 +33,29 @@ div p {
 }
 
 .blink {
-  animation: blink 3s ease;
+  animation: blink 1s ease;
 }
 
 @keyframes blink {
   0% {
 
   }
+  20% {
+        transform: scale(1.2);
+  }
+  40% {
+        transform: scale(1);
+  }
   50% {
     color: #60a6dd;
+        transform: scale(1.2);
+  }
+  70% {
+        transform: scale(1);
+  }
+  90% {
+        transform: scale(1.2);
+
   }
   100% {
 
