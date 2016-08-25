@@ -31,3 +31,20 @@ div img {
 div p {
   text-align: center;
 }
+
+.blink {
+  animation: blink 3s ease;
+}
+
+@keyframes blink {
+  0% {
+
+  }
+  50% {
+    color: #60a6dd;
+  }
+  100% {
+
+  }
+}
+

@@ -3,6 +3,7 @@ var version = 1;
 var CACHE_STATIC = 'service-worker-demo-cache-static-v' + version;
 var staticResource = [
   '/',
+  '/offline.html',
   '/static-resources/',
   '/static-resources/style.css',
   '/static-resources/app.js',
@@ -19,7 +20,7 @@ self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open(CACHE_STATIC)
       .then(function(cache) {
-          console.log('cache opened', cache);
+          // console.log('cache opened', cache);
           return cache.addAll(staticResource);
       })
   );
@@ -40,7 +41,14 @@ self.addEventListener('activate', function(event) {
 });
 
 self.addEventListener('fetch', function(event) {
-  console.log(event);
+  // event.respondWith(
+  //   caches.open(CACHE_STATIC)
+  //     .then(function(cache) {
+  //       return cache.match('/offline.html');
+  //     })
+  // );
+
+
   if(!checkDynamicResource(event)) {
     event.respondWith(
       caches.open(CACHE_STATIC)
@@ -48,7 +56,7 @@ self.addEventListener('fetch', function(event) {
           var fetchClone = event.request.clone();
           return fetch(fetchClone)
             .then(function(response) {
-              console.log('fetch-event-response:', response);
+              // console.log('fetch-event-response:', response);
               return response;
             })
             .catch(function(error) {
@@ -73,6 +81,8 @@ self.addEventListener('fetch', function(event) {
 
 self.addEventListener('push', function(event) {
   console.log(event);
+
+
   var title = "Hello Ping",
       message = "Notice me!",
       tag = "gcm-push-notification";
@@ -82,7 +92,15 @@ self.addEventListener('push', function(event) {
       body: message,
       icon: '/static-resources/drupal_logo.png',
       tag: tag,
-    }));
+    }).then(function(notification) {
+      self.clients.matchAll().then(function(clients) {
+        clients.forEach(function(client) {
+          console.log(client);
+          client.postMessage('You have just recieved a ping!');
+        });
+      })
+    })
+  );
 });
 
 self.addEventListener('error', function(event) {
